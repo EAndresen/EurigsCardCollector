@@ -16,7 +16,7 @@ public class Card {
     private String artist;
     private String set_id;
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
