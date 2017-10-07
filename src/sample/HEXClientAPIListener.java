@@ -26,7 +26,6 @@ class HEXClientAPIListener {
 
                     while (reader.hasNextLine()) {
                         consoleTextArea.appendText(reader.nextLine() + "\n");
-                        System.out.println(reader.nextLine());
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
