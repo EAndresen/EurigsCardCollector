@@ -1,18 +1,29 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 
+import java.io.IOException;
 import java.util.Collection;
 
 public class Controller {
 
+    @FXML
+    private TextArea startTextArea;
 
+    @FXML
+    private TextArea consoleTextArea;
 
     @FXML
     private void initialize(){
         CardCreator cardCreator = new CardCreator();
+        try {
+            HEXClientAPIListener hexClientAPIListener = new HEXClientAPIListener(consoleTextArea);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        String jsonString = "{\n" +
+        String jsonString = "[" + "{\n" +
                 "\t\t\"name\": \"Lady Valerie\",\n" +
                 "\t\t\"cost\": \"4\",\n" +
                 "\t\t\"threshold\": \"2 Wild\",\n" +
@@ -171,14 +182,12 @@ public class Controller {
                 "\t\t\"health\": \"2\",\n" +
                 "\t\t\"artist\": \"Apterus\",\n" +
                 "\t\t\"set_id\": \"AZ2\"\n" +
-                "\t}";
+                "\t}" + "]";
 
-        String jsonOutput = "[" +  jsonString + "]";
-
-        Collection cards = cardCreator.createCards(jsonOutput);
+        Collection cards = cardCreator.createCards(jsonString);
         for (Object card : cards){
             Card myCard = (Card) card;
-            System.out.println(myCard .getName());
+            startTextArea.appendText(myCard.getName() + "\n");
         }
 
     }
