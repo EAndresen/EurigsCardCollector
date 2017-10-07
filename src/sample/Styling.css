@@ -1,0 +1,7 @@
+#consoleTextArea {
+    -fx-text-fill: #3cc417;
+}
+
+#consoleTextArea .content {
+    -fx-background-color: rgba(4, 4, 4, 0.85);
+}

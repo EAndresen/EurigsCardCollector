@@ -15,7 +15,7 @@ class HEXClientAPIListener {
     HEXClientAPIListener(TextArea consoleTextArea) throws IOException {
         Runnable runnable = () -> {
             while (true) {
-                Socket socket = null;
+                Socket socket;
                 try {
                     socket = serverSocket.accept();
                 } catch (IOException e) {
@@ -23,7 +23,7 @@ class HEXClientAPIListener {
                     break;
                 }
 
-                InputStream stream = null;
+                InputStream stream;
 
                 try {
                     stream = socket.getInputStream();
