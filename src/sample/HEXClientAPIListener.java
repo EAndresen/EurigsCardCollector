@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 
 class HEXClientAPIListener {
@@ -18,20 +20,26 @@ class HEXClientAPIListener {
                     socket = serverSocket.accept();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    break;
                 }
 
-                try {
-                    InputStream stream = socket.getInputStream();
-                    Scanner reader = new Scanner(stream);
+                InputStream stream = null;
 
-                    while (reader.hasNextLine()) {
-                        consoleTextArea.appendText(reader.nextLine() + "\n");
-                    }
+                try {
+                    stream = socket.getInputStream();
                 } catch (IOException e) {
                     e.printStackTrace();
                     break;
                 }
-                consoleTextArea.appendText("\n");
+
+                Scanner reader = new Scanner(stream);
+
+                Platform.runLater(() -> {
+                    while (reader.hasNextLine()) {
+                        consoleTextArea.appendText(reader.nextLine() + "\n");
+                    }
+                    consoleTextArea.appendText("\n");
+                });
             }
         };
         new Thread(runnable).start();
