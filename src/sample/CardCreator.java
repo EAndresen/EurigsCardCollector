@@ -9,8 +9,131 @@ import java.util.Collection;
 class CardCreator {
     private Gson gson = new Gson();
 
-    Collection<Card> createCards(String inputJson) {
-        Type collectionType = new TypeToken<Collection<Card>>(){}.getType();
-        return gson.fromJson(inputJson, collectionType);
+    private Collection<Card> cardCollection;
+
+    CardCreator() {
+        createCards();
     }
+
+    private void createCards() {
+        Type collectionType = new TypeToken<Collection<Card>>(){}.getType();
+       this.cardCollection = gson.fromJson(jsonString, collectionType);
+    }
+
+    Collection<Card> getCardCollection() {
+        return cardCollection;
+    }
+
+    private String jsonString = "[" + "{\n" +
+            "\t\t\"name\": \"Lady Valerie\",\n" +
+            "\t\t\"cost\": \"4\",\n" +
+            "\t\t\"threshold\": \"2 Wild\",\n" +
+            "\t\t\"uuid\": \"5008c500-219b-4382-87cb-e6e3d8c153aa\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Faerie\",\n" +
+            "\t\t\"restriction\": \"Unique\",\n" +
+            "\t\t\"rarity\": \"Epic\",\n" +
+            "\t\t\"text\": \"<b>Flight</b><p><p><b>Deploy</b> - Summon two <b>Battle Faeries</b>.\",\n" +
+            "\t\t\"flavor\": \"Born to fey royalty, Lady Valerie's kindness is only exceeded by her ferocity when \n protecting the ones she loves.\",\n" +
+            "\t\t\"atk\": \"2\",\n" +
+            "\t\t\"health\": \"4\",\n" +
+            "\t\t\"artist\": \"Robb Mommaerts\",\n" +
+            "\t\t\"set_id\": \"AI Only Cards\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"name\": \"Battle Faerie\",\n" +
+            "\t\t\"cost\": \"1\",\n" +
+            "\t\t\"threshold\": \"1 Wild\",\n" +
+            "\t\t\"uuid\": \"fd5e7a1d-4a61-419a-b9b2-3d38c564e50c\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Faerie\",\n" +
+            "\t\t\"restriction\": \"\",\n" +
+            "\t\t\"rarity\": \"Non-Collectible\",\n" +
+            "\t\t\"text\": \"<b>Flight</b>, <b>Defensive</b>\",\n" +
+            "\t\t\"flavor\": \"Small in stature, but possessed of enormous savagery.\",\n" +
+            "\t\t\"atk\": \"2\",\n" +
+            "\t\t\"health\": \"1\",\n" +
+            "\t\t\"artist\": \"Robb Mommaerts\",\n" +
+            "\t\t\"set_id\": \"AI Only Cards\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"name\": \"Killarvae\",\n" +
+            "\t\t\"cost\": \"2\",\n" +
+            "\t\t\"threshold\": \"1 Blood\",\n" +
+            "\t\t\"uuid\": \"c5de53fb-854e-4bb5-a922-45d354130974\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Insect\",\n" +
+            "\t\t\"restriction\": \"\",\n" +
+            "\t\t\"rarity\": \"Rare\",\n" +
+            "\t\t\"text\": \"<b>Lethal</b><p><p>When this deals damage to a champion, that champion becomes \n <b>Toxified</b>.<p><p>When this deals damage to a <b>Toxified</b> champion, that champion discards a card at random.\",\n" +
+            "\t\t\"flavor\": \"\",\n" +
+            "\t\t\"atk\": \"2\",\n" +
+            "\t\t\"health\": \"1\",\n" +
+            "\t\t\"artist\": \"Wei Zi\",\n" +
+            "\t\t\"set_id\": \"AZ2\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"name\": \"Lost Gnome\",\n" +
+            "\t\t\"cost\": \"2\",\n" +
+            "\t\t\"threshold\": \"\",\n" +
+            "\t\t\"uuid\": \"4ccb7e5f-bc32-4e9a-b1fe-abf944b27b74\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Gnome\",\n" +
+            "\t\t\"restriction\": \"\",\n" +
+            "\t\t\"rarity\": \"Epic\",\n" +
+            "\t\t\"text\": \"<b>Unlimited</b><p><p>When an opposing Wormoid enters play, put this into your  \n deck and draw a card.\",\n" +
+            "\t\t\"flavor\": \"\",\n" +
+            "\t\t\"atk\": \"1\",\n" +
+            "\t\t\"health\": \"2\",\n" +
+            "\t\t\"artist\": \"Kieran Yanner\",\n" +
+            "\t\t\"set_id\": \"AI Only Cards\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"name\": \"Wormoid Grub\",\n" +
+            "\t\t\"cost\": \"6\",\n" +
+            "\t\t\"threshold\": \"2 Ruby\",\n" +
+            "\t\t\"uuid\": \"71eb42ef-ea8a-45a9-85a1-a418041bcf00\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Wormoid\",\n" +
+            "\t\t\"restriction\": \"\",\n" +
+            "\t\t\"rarity\": \"Epic\",\n" +
+            "\t\t\"text\": \"[BASIC] [RUBY]: [(2)] [ARROWR] <b>Tunneling 4</b>.<p><p>When an opposing champion \n plays a troop, if this is underground, this gets <b>Tunneling -1</b>.\",\n" +
+            "\t\t\"flavor\": \"\",\n" +
+            "\t\t\"atk\": \"4\",\n" +
+            "\t\t\"health\": \"3\",\n" +
+            "\t\t\"artist\": \"Yuriy Chemezov\",\n" +
+            "\t\t\"set_id\": \"AI Only Cards\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"name\": \"Wormoid\",\n" +
+            "\t\t\"cost\": \"8\",\n" +
+            "\t\t\"threshold\": \"2 Ruby\",\n" +
+            "\t\t\"uuid\": \"29d3dba9-4978-4bae-b228-31704a8093c3\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Wormoid\",\n" +
+            "\t\t\"restriction\": \"\",\n" +
+            "\t\t\"rarity\": \"Epic\",\n" +
+            "\t\t\"text\": \"<b>Crush</b><p><p>[BASIC] [RUBY]: [(2)] [ARROWR] <b>Tunneling 6</b>.<p><p>When an \n opposing champion plays an action, if this is underground, this gets <b>Tunneling -2</b>.\",\n" +
+            "\t\t\"flavor\": \"\",\n" +
+            "\t\t\"atk\": \"5\",\n" +
+            "\t\t\"health\": \"5\",\n" +
+            "\t\t\"artist\": \"John Silva\",\n" +
+            "\t\t\"set_id\": \"AI Only Cards\"\n" +
+            "\t},\n" +
+            "\t{\n" +
+            "\t\t\"name\": \"Firebreathing Wormoid\",\n" +
+            "\t\t\"cost\": \"10\",\n" +
+            "\t\t\"threshold\": \"2 Ruby\",\n" +
+            "\t\t\"uuid\": \"b76be4c0-a340-4bec-9c09-2b17df50f54f\",\n" +
+            "\t\t\"type\": \"Troop\",\n" +
+            "\t\t\"subtype\": \"Wormoid\",\n" +
+            "\t\t\"restriction\": \"\",\n" +
+            "\t\t\"rarity\": \"Epic\",\n" +
+            "\t\t\"text\": \"[BASIC] [RUBY]: [(2)] [ARROWR] <b>Tunneling 8</b>.<p><p>When an opposing champion plays a resource, if this is underground, this gets <b>Tunneling -1</b>.<p><p><b>Deploy</b> - This deals 1 damage to each opposing troop for each Wormoid you control.\",\n" +
+            "\t\t\"flavor\": \"\",\n" +
+            "\t\t\"atk\": \"9\",\n" +
+            "\t\t\"health\": \"4\",\n" +
+            "\t\t\"artist\": \"MagicMan\",\n" +
+            "\t\t\"set_id\": \"AI Only Cards\"\n" +
+            "\t}" + "]";
 }

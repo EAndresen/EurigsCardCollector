@@ -5,3 +5,17 @@
 #consoleTextArea .content {
     -fx-background-color: rgba(4, 4, 4, 0.85);
 }
+
+.cardPane {
+    -fx-border-color: #727272;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-background-color: linear-gradient(to bottom, #b5bcc6, #dee3e4);
+    -fx-padding: 10;
+    -fx-hgap: 2;
+    -fx-vgap: 2;
+    -fx-pref-width: 750;
+    -fx-alignment: center;
+}
+
