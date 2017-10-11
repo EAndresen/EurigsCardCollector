@@ -19,3 +19,14 @@
     -fx-alignment: center;
 }
 
+.cardPane .content {
+    -fx-alignment: center;
+}
+
+.anchorPane {
+    -fx-alignment: center;
+}
+
+.anchorPane .content {
+    -fx-alignment: center;
+}

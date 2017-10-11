@@ -2,7 +2,7 @@ package sample;
 
 public class Card {
     private String name;
-    private int cost;
+    private String cost;
     private String threshold;
     private String uuid;
     private String type;
@@ -24,11 +24,11 @@ public class Card {
         this.name = name;
     }
 
-    public int getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 

@@ -42,6 +42,11 @@ class HEXClientAPIListener {
                 });
             }
         };
-        new Thread(runnable).start();
+        Thread thread = new Thread(runnable);
+        thread.setDaemon(true);
+        thread.start();
+
+
+
     }
 }
